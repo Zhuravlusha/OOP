@@ -1,8 +1,8 @@
 #include "OOP.h"
 
-void Filippov::Object_oriented::Input(ifstream &fin)
+void Zhuravleva::Object_oriented::Input(ifstream &fin)
 {
-	Filippov::Language::Input(fin);
+	Zhuravleva::Language::Input(fin);
 	unsigned short int temp;
 	fin >> temp;
 	switch (temp)
@@ -21,7 +21,7 @@ void Filippov::Object_oriented::Input(ifstream &fin)
 	}
 }
 
-void Filippov::Object_oriented::Output(ofstream &fout)
+void Zhuravleva::Object_oriented::Output(ofstream &fout)
 {
 	fout << "It is Object-oriented programming language: Inheritance is ";
 	switch (number)
@@ -38,5 +38,5 @@ void Filippov::Object_oriented::Output(ofstream &fout)
 	default:
 		break;
 	}
-	Filippov::Language::Output(fout);
+	Zhuravleva::Language::Output(fout);
 }

@@ -3,7 +3,7 @@
 #include <fstream>
 
 using namespace std;
-using namespace Filippov;
+using namespace Zhuravleva;
 
 int main(int argc, char* argv[])
 {

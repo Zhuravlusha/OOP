@@ -3,7 +3,7 @@
 
 #include "Language.h"
 
-namespace Filippov
+namespace Zhuravleva
 {
 	class Object_oriented : public Language
 	{

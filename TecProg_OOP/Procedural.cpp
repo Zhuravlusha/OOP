@@ -1,12 +1,12 @@
 #include "Procedural.h"
 
-void Filippov::Procedural::Input(ifstream &fin)
+void Zhuravleva::Procedural::Input(ifstream &fin)
 {
-	Filippov::Language::Input(fin);
+	Zhuravleva::Language::Input(fin);
 	fin >> abstract_type;
 }
 
-void Filippov::Procedural::Output(ofstream &fout)
+void Zhuravleva::Procedural::Output(ofstream &fout)
 {
 	fout << "It is Procedural programming language: Abstract data types is ";
 	if (abstract_type)
@@ -17,5 +17,5 @@ void Filippov::Procedural::Output(ofstream &fout)
 	{
 		fout << "missing, ";
 	}
-	Filippov::Language::Output(fout);
+	Zhuravleva::Language::Output(fout);
 }

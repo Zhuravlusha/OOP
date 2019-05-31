@@ -2,7 +2,7 @@
 #include "Procedural.h"
 #include "OOP.h"
 
-Filippov::Language* Filippov::Language::Language_Input(ifstream &fin)
+Zhuravleva::Language* Zhuravleva::Language::Language_Input(ifstream &fin)
 {
 	Language *language;
 	unsigned short int temp;
@@ -22,13 +22,13 @@ Filippov::Language* Filippov::Language::Language_Input(ifstream &fin)
 	return language;
 }
 
-void Filippov::Language::Input(ifstream &fin)
+void Zhuravleva::Language::Input(ifstream &fin)
 {
 	fin >> year_of_development;
 	fin >> reference;
 }
 
-void Filippov::Language::Output(ofstream &fout)
+void Zhuravleva::Language::Output(ofstream &fout)
 {
 	fout << "Year of development = " << year_of_development
 		<< ", The number of references of this language on the Internet = " << reference << endl;

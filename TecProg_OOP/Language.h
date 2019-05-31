@@ -5,7 +5,7 @@
 
 using namespace std;
 
-namespace Filippov
+namespace Zhuravleva
 {
 	class Language
 	{
