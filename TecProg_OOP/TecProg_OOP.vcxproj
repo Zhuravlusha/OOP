@@ -115,6 +115,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Language.h" />
+    <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="OOP.h" />
+    <ClInclude Include="Procedural.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Language.cpp" />
+    <ClCompile Include="LinkedList.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="OOP.cpp" />
+    <ClCompile Include="Procedural.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="input.txt" />
+    <Text Include="output.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
