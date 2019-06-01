@@ -17,7 +17,6 @@ namespace Zhuravleva
 		virtual void Output(ofstream &fout);
 	private:
 		unsigned short int year_of_development;
-		int reference;
 	};
 }
 
