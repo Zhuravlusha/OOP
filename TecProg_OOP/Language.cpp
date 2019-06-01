@@ -25,11 +25,14 @@ Zhuravleva::Language* Zhuravleva::Language::Language_Input(ifstream &fin)
 void Zhuravleva::Language::Input(ifstream &fin)
 {
 	fin >> year_of_development;
-	fin >> reference;
 }
 
 void Zhuravleva::Language::Output(ofstream &fout)
 {
-	fout << "Year of development = " << year_of_development
-		<< ", The number of references of this language on the Internet = " << reference << endl;
+	fout << "Year of development = " << year_of_development << endl;
+}
+
+void Zhuravleva::Language::Only_Procedural(ofstream &fout)
+{
+	fout << endl;
 }

@@ -19,3 +19,8 @@ void Zhuravleva::Procedural::Output(ofstream &fout)
 	}
 	Zhuravleva::Language::Output(fout);
 }
+
+void Zhuravleva::Procedural::Only_Procedural(ofstream &fout)
+{
+	Zhuravleva::Procedural::Output(fout);
+}

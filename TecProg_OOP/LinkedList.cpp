@@ -35,12 +35,12 @@ void Zhuravleva::LinkedList::LinkedList_Input(ifstream &fin)
 
 		++SizeList;
 
-		if (First == NULL)
+		if (First == NULL)//åñëè ñïèñîê ïóñòîé
 		{
 			Temp->Prev = NULL;
 			First = Last = Temp;
 		}
-		else
+		else//åñëè â ñïèñêå åñòü õîòÿ áû 1 ýëåìåíò
 		{
 			Temp->Prev = Last;
 			Last->Next = Temp;
@@ -60,4 +60,19 @@ void Zhuravleva::LinkedList::LinkedList_Output(ofstream &fout)
 		current->language->Output(fout);
 		current = current->Next;
 	}
+}
+
+void Zhuravleva::LinkedList::Only_Procedural(ofstream &fout)
+{
+	Node *current = First;
+	fout << "Only Procedural languages." << endl;
+
+	for (size_t i = 0; i < SizeList; i++)
+	{
+		fout << i + 1 << ": ";
+		current->language->Only_Procedural(fout);
+		current = current->Next;
+	}
+
+	fout << endl;
 }
