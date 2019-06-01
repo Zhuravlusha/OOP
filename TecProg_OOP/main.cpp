@@ -5,7 +5,7 @@
 using namespace std;
 using namespace Zhuravleva;
 
-int main(int argc, char* argv[])
+int main(int argc, char* argv[])//int argc, char* argv[]
 {
 	if (argc != 3)
 	{
