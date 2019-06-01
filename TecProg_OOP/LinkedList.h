@@ -1,3 +1,4 @@
+#pragma once
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
@@ -19,10 +20,14 @@ namespace Zhuravleva
 
 		void LinkedList_Input(ifstream &fin);
 		void LinkedList_Output(ofstream &fout);
+
+		void Sort_List();
 	private:
 		Node *First;
 		Node *Last;
 		size_t SizeList;
+
+		void Swap(Node *first, Node *second);
 	};
 }
 
