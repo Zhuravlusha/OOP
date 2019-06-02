@@ -96,7 +96,7 @@ void Zhuravleva::LinkedList::Sort_List()
 
 void Zhuravleva::LinkedList::Swap(Node *first, Node *second)
 {
-	if ((first->Prev == NULL) && (second->Next == NULL))//åñëè â ñïèñêå âñåãî 2 ýëåìåíòà, íî íàì ïðèñïè÷èëî ïîìåíÿòü èõ ìåñòàìè
+	if ((first->Prev == NULL) && (second->Next == NULL))
 	{
 		First = second;
 		Last = first;
@@ -106,7 +106,7 @@ void Zhuravleva::LinkedList::Swap(Node *first, Node *second)
 		second->Prev = NULL;
 		return;
 	}
-	if ((first->Prev == NULL) && (second->Next != NULL))//åñëè ìû ìåíÿåì ìåñòàìè ïåðâûé è âòîðîé ýëåìåíò ñïèñêà, â êîòîðîì 3 è áîëåå ýëåìåíòîâ !(first->Prev)
+	if ((first->Prev == NULL) && (second->Next != NULL))
 	{
 		first->Next = second->Next;
 		first->Prev = second;
@@ -116,7 +116,7 @@ void Zhuravleva::LinkedList::Swap(Node *first, Node *second)
 		First = second;
 		return;
 	}
-	if ((first->Prev != NULL) && (second->Next == NULL))//åñëè ìû ìåíÿåì ìåñòàìè ïðåäïîñëåäíèé è ïîñëåäíèé ýëåìåíò ñïèñêà, â êîòîðîì 3 è áîëåå ýëåìåíòîâ !(second->Next)
+	if ((first->Prev != NULL) && (second->Next == NULL)) 
 	{
 		second->Prev = first->Prev;
 		first->Prev = second;
@@ -126,7 +126,7 @@ void Zhuravleva::LinkedList::Swap(Node *first, Node *second)
 		Last = first;
 		return;
 	}
-	if ((first->Prev != NULL) && (second->Next != NULL))//åñëè ìû ìåíÿåì êàêèõ-òî äâà ýëåìåíòà, íàõîäÿùèõñÿ â ñåðåäèíå ñïèñêà, â êîòîðîì 4 è áîëåå ýëåìåíòà(íàïðèìåð âòîðîé è òðåòèé, åñëè â ñïèñêå 4 ýëåìåíòà)
+	if ((first->Prev != NULL) && (second->Next != NULL))
 	{
 		first->Next = second->Next;
 		second->Prev = first->Prev;
