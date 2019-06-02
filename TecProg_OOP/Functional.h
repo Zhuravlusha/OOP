@@ -9,7 +9,7 @@ namespace Zhuravleva
 	{
 	public:
 		Functional() {/**/ }
-		void Input(ifstream &fin);
+		bool Input(ifstream &fin);
 		void Output(ofstream &fout);
 	private:
 		bool lazy_calculations;
@@ -21,4 +21,4 @@ namespace Zhuravleva
 	};
 }
 
-#endif // !FUNCTIONAL_H
+#endif

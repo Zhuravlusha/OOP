@@ -9,7 +9,7 @@ namespace Zhuravleva
 	{
 	public:
 		Procedural() {/**/ }
-		void Input(ifstream &fin);
+		bool Input(ifstream &fin);
 		void Output(ofstream &fout);
 		void Only_Procedural(ofstream &fout);
 	private:
@@ -17,4 +17,4 @@ namespace Zhuravleva
 	};
 }
 
-#endif // !PROCEDURAL_H
+#endif

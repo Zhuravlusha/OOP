@@ -1,38 +1,57 @@
 #include "OOP.h"
+#include <string>
 
-void Zhuravleva::Object_oriented::Input(ifstream &fin)
+bool Zhuravleva::Object_Oriented::Input(ifstream &fin)
 {
-	Zhuravleva::Language::Input(fin);
-	unsigned short int temp;
+	if (!Zhuravleva::Language::Input(fin))
+	{
+		return false;
+	}
+
+	string temp;
 	fin >> temp;
-	switch (temp)
+	if (temp == "\0")
+	{
+		return false;
+	}
+	if (temp.length() > 1)
+	{
+		return false;
+	}
+	if (!isdigit(int(unsigned char(temp.front()))))
+	{
+		return false;
+	}
+
+	int state = stoi(temp);
+	switch (state)
 	{
 	case 1:
-		number = Object_oriented::inheritance::SINGLE;
-		break;
+		number = Object_Oriented::inheritance::SINGLE;
+		return true;
 	case 2:
-		number = Object_oriented::inheritance::MULTIPLE;
-		break;
+		number = Object_Oriented::inheritance::MULTIPLE;
+		return true;
 	case 3:
-		number = Object_oriented::inheritance::INTERFACE;
-		break;
+		number = Object_Oriented::inheritance::INTERFACE;
+		return true;
 	default:
-		break;
+		return false;
 	}
 }
 
-void Zhuravleva::Object_oriented::Output(ofstream &fout)
+void Zhuravleva::Object_Oriented::Output(ofstream &fout)
 {
 	fout << "It is Object-oriented programming language: Inheritance is ";
 	switch (number)
 	{
-	case Object_oriented::inheritance::SINGLE:
+	case Object_Oriented::inheritance::SINGLE:
 		fout << "single, ";
 		break;
-	case Object_oriented::inheritance::MULTIPLE:
+	case Object_Oriented::inheritance::MULTIPLE:
 		fout << "multiple, ";
 		break;
-	case Object_oriented::inheritance::INTERFACE:
+	case Object_Oriented::inheritance::INTERFACE:
 		fout << "interface, ";
 		break;
 	default:

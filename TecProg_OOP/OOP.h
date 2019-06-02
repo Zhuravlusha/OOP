@@ -5,11 +5,11 @@
 
 namespace Zhuravleva
 {
-	class Object_oriented : public Language
+	class Object_Oriented : public Language
 	{
 	public:
-		Object_oriented() {/**/ }
-		void Input(ifstream &fin);
+		Object_Oriented() {/**/ }
+		bool Input(ifstream &fin);
 		void Output(ofstream &fout);
 	private:
 		enum inheritance
@@ -21,4 +21,4 @@ namespace Zhuravleva
 	};
 }
 
-#endif // !OOP_H
+#endif
