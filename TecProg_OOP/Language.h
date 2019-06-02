@@ -15,6 +15,9 @@ namespace Zhuravleva
 		static Language* Language_Input(ifstream &fin);
 		virtual void Input(ifstream &fin);
 		virtual void Output(ofstream &fout);
+
+		int Past_Years();
+		bool Compare(Language &second);
 	private:
 		unsigned short int year_of_development;
 	};
