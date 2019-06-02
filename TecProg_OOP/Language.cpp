@@ -48,4 +48,10 @@ int Zhuravleva::Language::Past_Years()
 bool Zhuravleva::Language::Compare(Language &second)
 {
 	return Past_Years() < second.Past_Years();
+	fout << "Year of development = " << year_of_development << endl;
+}
+
+void Zhuravleva::Language::Only_Procedural(ofstream &fout)
+{
+	fout << endl;
 }

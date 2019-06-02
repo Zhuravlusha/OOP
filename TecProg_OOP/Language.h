@@ -16,6 +16,8 @@ namespace Zhuravleva
 		virtual void Input(ifstream &fin);
 		virtual void Output(ofstream &fout);
 
+		virtual void Only_Procedural(ofstream &fout);
+
 		int Past_Years();
 		bool Compare(Language &second);
 	private:
