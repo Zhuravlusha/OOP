@@ -31,12 +31,12 @@ void Zhuravleva::Linked_List::Linked_List_Input(ifstream &fin)
 		temp->next = NULL;
 		++size_list;
 
-		if (head == NULL)//åñëè ñïèñîê ïóñòîé
+		if (head == NULL)
 		{
 			temp->prev = NULL;
 			head = tail = temp;
 		}
-		else//åñëè â ñïèñêå åñòü õîòÿ áû 1 ýëåìåíò
+		else
 		{
 			temp->prev = tail;
 			tail->next = temp;
