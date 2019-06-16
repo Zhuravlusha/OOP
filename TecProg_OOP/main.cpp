@@ -15,36 +15,22 @@ int main(int argc, char* argv[])
 	}
 
 	ifstream fin(argv[1]);
-	if (!fin.is_open())
-	{
-		cout << "No input file found or could not open!" << endl;
-		system("pause");
-		return 1;
-	}
 	ofstream fout(argv[2]);
-	if (!fin.is_open())
-	{
-		cout << "No output file found or could not open!" << endl;
-		system("pause");
-		return 1;
-	}
 
 	cout << "Start" << endl;
 
-	Linked_List list;
-	list.Linked_List_Input(fin);
+	LinkedList list;
+	list.LinkedList_Input(fin);
 	fout << "Filled container." << endl;
-	list.Linked_List_Output(fout);
+	list.LinkedList_Output(fout);
 
-	fout << endl << "Sorted Linked List." << endl;
-	list.Sort_List();
-	list.Linked_List_Output(fout);
+	fout << endl;
+	list.Multi_Method(fout);
+	fout << endl;
 
-	list.Only_Procedural(fout);
-
-	list.~Linked_List();
+	list.~LinkedList();
 	fout << "Empty container." << endl;
-	list.Linked_List_Output(fout);
+	list.LinkedList_Output(fout);
 
 	cout << "Stop" << endl;
 	return 0;

@@ -1,163 +1,83 @@
 ﻿#include "LinkedList.h"
 
-Zhuravleva::Linked_List::Linked_List()
+Zhuravleva::LinkedList::LinkedList()
 {
-	head = NULL;
-	tail = NULL;
-	size_list = 0;
+	First = NULL;
+	Last = NULL;
+	SizeList = 0;
 }
 
-Zhuravleva::Linked_List::~Linked_List()
+Zhuravleva::LinkedList::~LinkedList()
 {
-	Node *temp = NULL;
-	while (tail != NULL)
+	Node *Temp = NULL;
+	while (Last != NULL)
 	{
-		temp = tail->prev;
-		delete tail;
-		tail = temp;
-		--size_list;
+		Temp = Last->Prev;
+		delete Last;
+		Last = Temp;
+		--SizeList;
 	}
-	head = temp;
+	First = Temp;
 }
 
-void Zhuravleva::Linked_List::Linked_List_Input(ifstream &fin)
+
+
+void Zhuravleva::LinkedList::LinkedList_Input(ifstream &fin)
 {
-	Node *temp;
+	Node *Temp;
 	while (!fin.eof())
 	{
-		temp = new Node;
+		Temp = new Node;
 
-		temp->language = Language::Language_Input(fin);
-		temp->next = NULL;
-		++size_list;
+		Temp->Next = NULL;
 
-		if (head == NULL)
+		Temp->language = Language::Language_Input(fin);
+
+		++SizeList;
+
+		if (First == NULL)
 		{
-			temp->prev = NULL;
-			head = tail = temp;
+			Temp->Prev = NULL;
+			First = Last = Temp;
 		}
 		else
 		{
-			temp->prev = tail;
-			tail->next = temp;
-			tail = temp;
+			Temp->Prev = Last;
+			Last->Next = Temp;
+			Last = Temp;
 		}
 	}
 }
 
-void Zhuravleva::Linked_List::Linked_List_Output(ofstream &fout)
+void Zhuravleva::LinkedList::LinkedList_Output(ofstream &fout)
 {
-	Node *current = head;
-	fout << "Container contains " << size_list << " elements." << endl;
+	Node *current = First;
+	fout << "Container contains " << SizeList << " elements." << endl;
 
-	for (size_t i = 0; i < size_list; i++)
+	for (size_t i = 0; i < SizeList; i++)
 	{
 		fout << i + 1 << ": ";
-		if (current->language == NULL)
-		{
-			fout << "Error reading data! Expected other values in the string." << endl;
-		}
-		else
-		{
-			current->language->Output(fout);
-			fout << "The number of years that have passed since the year the language was created = "
-				<< current->language->Past_Years() << endl;
-		}
-		current = current->next;
+		current->language->Output(fout);
+		current = current->Next;
 	}
 }
 
-void Zhuravleva::Linked_List::Only_Procedural(ofstream &fout)
+void Zhuravleva::LinkedList::Multi_Method(ofstream &fout)
 {
-	Node *current = head;
-	fout << endl << "Only Procedural languages." << endl;
+	Node *current_first = First;
+	Node *current_second = current_first->Next;
 
-	for (size_t i = 0; i < size_list; i++)
+	fout << "Multimethod." << endl;
+	for (size_t i = 0; i < SizeList - 1; i++)
 	{
-		fout << i + 1 << ": ";
-		if (current->language == NULL)
+		for (size_t j = i + 1; j < SizeList; j++)
 		{
-			fout << endl;
-			continue;
+			current_first->language->Multi_Method(current_second->language, fout);
+			current_first->language->Output(fout);
+			current_second->language->Output(fout);
+			current_second = current_second->Next;
 		}
-		current->language->Only_Procedural(fout);
-		current = current->next;
-	}
-
-	fout << endl;
-}
-
-void Zhuravleva::Linked_List::Sort_List()
-{
-	if (size_list < 2)
-	{
-		return;
-	}
-
-	Node *current = head;
-	bool flag = false;
-	do
-	{
-		current = head;
-		flag = false;
-		for (size_t i = 0; i < (size_list - 1); ++i)
-		{
-			if (current->language->Compare(*current->next->language))
-			{
-				Swap(current, current->next);
-				flag = true;
-			}
-			else
-			{
-				current = current->next;
-			}
-		}
-	} while (flag);
-}
-
-void Zhuravleva::Linked_List::Swap(Node *first, Node *second)
-{
-	if ((first->prev == NULL) && (second->next == NULL))
-	{
-		head = second;
-		tail = first;
-		first->prev = second;
-		second->next = first;
-		first->next = NULL;
-		second->prev = NULL;
-		return;
-	}
-
-	if ((first->prev == NULL) && (second->next != NULL))
-	{
-		first->next = second->next;
-		first->prev = second;
-		second->next->prev = first;
-		second->next = first;
-		second->prev = NULL;
-		head = second;
-		return;
-	}
-
-	if ((first->prev != NULL) && (second->next == NULL))
-	{
-		second->prev = first->prev;
-		first->prev = second;
-		first->next = NULL;
-		second->next = first;
-		second->prev->next = second;
-		tail = first;
-		return;
-	}
-	
-	if ((first->prev != NULL) && (second->next != NULL))
-	{
-		first->next = second->next;
-		second->prev = first->prev;
-		second->next = first;
-		first->prev = second;
-		second->prev->next = second;
-		first->next->prev = first;
-		return;
+		current_first = current_first->Next;
+		current_second = current_first->Next;
 	}
 }

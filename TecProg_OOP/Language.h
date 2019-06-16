@@ -12,16 +12,16 @@ namespace Zhuravleva
 	protected:
 		Language() {/**/ }
 	public:
-		static Language *Language_Input(ifstream &fin);
-		virtual bool Input(ifstream &fin);
+		static Language* Language_Input(ifstream &fin);
+		virtual void Input(ifstream &fin);
 		virtual void Output(ofstream &fout);
-		virtual void Only_Procedural(ofstream &fout);
-		int Past_Years();
-		bool Compare(Language &second);
+
+		virtual void Multi_Method(Language *other, ofstream &fout) = 0;
+		virtual void Multi_Method_Procedural(ofstream &fout) = 0;
+		virtual void Multi_Method_OOP(ofstream &fout) = 0;
 	private:
-		unsigned int year_of_development;
-		unsigned long long int reference;
+		unsigned short int year_of_development;
 	};
 }
 
-#endif
+#endif // !LANGUAGE_H

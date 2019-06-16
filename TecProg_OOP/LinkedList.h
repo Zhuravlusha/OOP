@@ -1,3 +1,4 @@
+#pragma once
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
@@ -5,27 +6,27 @@
 
 namespace Zhuravleva
 {
-	class Linked_List
+	class LinkedList
 	{
 		struct Node
 		{
 			Language *language;
-			Node *next;
-			Node *prev;
+			Node *Next;
+			Node *Prev;
 		};
 	public:
-		Linked_List();
-		~Linked_List();
-		void Linked_List_Input(ifstream &fin);
-		void Linked_List_Output(ofstream &fout);
-		void Sort_List();
-		void Only_Procedural(ofstream &fout);
+		LinkedList();
+		~LinkedList();
+
+		void LinkedList_Input(ifstream &fin);
+		void LinkedList_Output(ofstream &fout);
+
+		void Multi_Method(ofstream &fout);
 	private:
-		Node *head;
-		Node *tail;
-		size_t size_list;
-		void Swap(Node *first, Node *second);
+		Node *First;
+		Node *Last;
+		size_t SizeList;
 	};
 }
 
-#endif
+#endif // !LINKEDLIST_H

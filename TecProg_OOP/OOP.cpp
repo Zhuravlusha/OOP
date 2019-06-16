@@ -1,61 +1,57 @@
 #include "OOP.h"
-#include <string>
 
-bool Zhuravleva::Object_Oriented::Input(ifstream &fin)
+void Zhuravleva::Object_oriented::Input(ifstream &fin)
 {
-	if (!Zhuravleva::Language::Input(fin))
-	{
-		return false;
-	}
-
-	string temp;
+	Zhuravleva::Language::Input(fin);
+	unsigned short int temp;
 	fin >> temp;
-	if (temp == "\0")
-	{
-		return false;
-	}
-	if (temp.length() > 1)
-	{
-		return false;
-	}
-	if (!isdigit(int(unsigned char(temp.front()))))
-	{
-		return false;
-	}
-
-	int state = stoi(temp);
-	switch (state)
+	switch (temp)
 	{
 	case 1:
-		number = Object_Oriented::inheritance::SINGLE;
-		return true;
+		number = Object_oriented::inheritance::SINGLE;
+		break;
 	case 2:
-		number = Object_Oriented::inheritance::MULTIPLE;
-		return true;
+		number = Object_oriented::inheritance::MULTIPLE;
+		break;
 	case 3:
-		number = Object_Oriented::inheritance::INTERFACE;
-		return true;
+		number = Object_oriented::inheritance::INTERFACE;
+		break;
 	default:
-		return false;
+		break;
 	}
 }
 
-void Zhuravleva::Object_Oriented::Output(ofstream &fout)
+void Zhuravleva::Object_oriented::Output(ofstream &fout)
 {
 	fout << "It is Object-oriented programming language: Inheritance is ";
 	switch (number)
 	{
-	case Object_Oriented::inheritance::SINGLE:
+	case Object_oriented::inheritance::SINGLE:
 		fout << "single, ";
 		break;
-	case Object_Oriented::inheritance::MULTIPLE:
+	case Object_oriented::inheritance::MULTIPLE:
 		fout << "multiple, ";
 		break;
-	case Object_Oriented::inheritance::INTERFACE:
+	case Object_oriented::inheritance::INTERFACE:
 		fout << "interface, ";
 		break;
 	default:
 		break;
 	}
 	Zhuravleva::Language::Output(fout);
+}
+
+void Zhuravleva::Object_oriented::Multi_Method(Language *other, ofstream &fout)
+{
+	other->Multi_Method_OOP(fout);
+}
+
+void Zhuravleva::Object_oriented::Multi_Method_OOP(ofstream &fout)
+{
+	fout << "OOP and OOP." << endl;
+}
+
+void Zhuravleva::Object_oriented::Multi_Method_Procedural(ofstream &fout)
+{
+	fout << "Procedural and OOP." << endl;
 }
