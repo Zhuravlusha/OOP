@@ -20,6 +20,7 @@ namespace Zhuravleva
 		void Linked_List_Output(ofstream &fout);
 		void Sort_List();
 		void Only_Procedural(ofstream &fout);
+		void Multi_Method(ofstream &fout);
 	private:
 		Node *head;
 		Node *tail;
